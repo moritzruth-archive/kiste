@@ -1,0 +1,14 @@
+@use "../utilities/screenSize";
+
+.flex-with-gutter {
+  display: flex;
+
+  & > *:not(:last-child) {
+    margin-right: var(--gutter-size);
+
+    @include screenSize.mobile {
+      margin-right: 0;
+      margin-bottom: var(--gutter-size);
+    }
+  }
+}

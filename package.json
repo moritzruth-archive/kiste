@@ -1,0 +1,15 @@
+{
+  "name": "kiste",
+  "version": "0.0.0",
+  "description": "A collection of UI components and styles",
+  "main": "index.js",
+  "repository": "https://github.com/moritzruth/kiste.git",
+  "author": "Moritz Ruth <dev@moritz-ruth.de>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "lodash.defaultsdeep": "^4.6.1",
+    "lodash.kebabcase": "^4.1.1",
+    "lodash.mapvalues": "^4.6.0"
+  }
+}
