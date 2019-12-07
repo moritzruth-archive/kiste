@@ -1,5 +1,5 @@
 <template>
-  <div class="k-app" :class="{ 'has-navigation-bar': hasNavigationBar }" :style="style">
+  <div class="k-app" :class="classes" :style="style">
     <slot/>
   </div>
 </template>
@@ -34,7 +34,7 @@
     overflow: auto;
     position: relative;
 
-    &.has-navigation-bar {
+    &.x-has-navigation-bar {
       padding-top: var(--x-navbar-height);
     }
   }
@@ -42,6 +42,7 @@
 
 <script>
   import { getFullTheme, getObjectAsCSSVariables } from "@kiste/js/utils/theming";
+  import { toModifierClasses } from "@kiste/js/utils/toModifierClasses";
 
   export default {
     name: "KApp",
@@ -57,6 +58,13 @@
       },
       style() {
         return getObjectAsCSSVariables(this.fullTheme);
+      },
+      classes() {
+        const { hasNavigationBar } = this.$kiste;
+
+        return toModifierClasses({
+          hasNavigationBar
+        });
       },
       hasNavigationBar: vm => vm.$kiste.hasNavigationBar
     }

@@ -1,5 +1,5 @@
 <template>
-  <nav class="k-navigation-bar" :class="{ 'show-background': showBackground, open, scrolled }">
+  <nav class="k-navigation-bar" :class="classes">
     <div class="k-navigation-bar__toggle" @click="open = !open">
       <span></span>
       <span></span>
@@ -64,11 +64,12 @@
 
     transition: 120ms linear background-color;
     background-color: transparent;
-    &.show-background {
+
+    &.x-show-background {
       background-color: var(--colors-background);
     }
 
-    &.scrolled {
+    &.x-scrolled {
       .k-navigation-bar__title {
         opacity: 1;
         transform: translateY(0);
@@ -223,7 +224,7 @@
       }
     }
 
-    .k-navigation-bar.open {
+    .k-navigation-bar.x-open {
       .k-navigation-bar__toggle > span {
         &:nth-child(1) {
           transform: translateY(10px) rotate(45deg);
@@ -253,6 +254,7 @@
 
 <script>
   import { isNuxt } from "@kiste/js/utils/isNuxt";
+  import { toModifierClasses } from "@kiste/js/utils/toModifierClasses";
 
   export default {
     name: "NavigationBar",
@@ -276,7 +278,16 @@
     }),
     computed: {
       scrolled: vm => vm.scrollPosition > 60,
-      showBackground: vm => vm.backgroundAfterScroll ? vm.scrollPosition > 0 : true
+      showBackground: vm => vm.backgroundAfterScroll ? vm.scrollPosition > 0 : true,
+      classes() {
+        const { open, scrolled, showBackground } = this;
+
+        return toModifierClasses({
+          open,
+          scrolled,
+          showBackground
+        })
+      }
     },
     mounted() {
       const scrollListener = () => {
