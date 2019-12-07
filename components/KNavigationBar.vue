@@ -36,7 +36,7 @@
 </template>
 
 <style lang="scss">
-  @use "~@kiste/css/utilities/screenSize";
+  @use "~@kiste/css/mixins/screenSize";
 
   .k-app {
     --x-navbar-height: 100px;
@@ -285,8 +285,11 @@
 
       window.addEventListener("scroll", scrollListener, { passive: true });
 
+      this.$kiste.hasNavigationBar = true;
+
       this.$on("hook:beforeDestroy", () => {
         window.removeEventListener("scroll", scrollListener);
+        this.$kiste.hasNavigationBar = false;
       });
 
       scrollListener();

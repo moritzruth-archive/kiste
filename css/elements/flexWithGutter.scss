@@ -1,4 +1,4 @@
-@use "../utilities/screenSize";
+@use "../mixins/screenSize";
 
 .flex-with-gutter {
   display: flex;

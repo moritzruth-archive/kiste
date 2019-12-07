@@ -1,26 +1,26 @@
 <template>
-  <div class="k-app" :style="style">
+  <div class="k-app" :class="{ 'has-navigation-bar': hasNavigationBar }" :style="style">
     <slot/>
   </div>
 </template>
 
 <style lang="scss">
-  @use "~@kiste/css/utilities/screenSize";
-  @use "~@kiste/css/utilities/fillScreen";
+  @use "~@kiste/css/mixins/screenSize";
+  @use "~@kiste/css/mixins/fillScreen";
   @use "~@kiste/css/formatting";
   @use "~@kiste/css/elements";
 
   *, *::before, *::after {
     box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
   }
 
   html, body, .k-app {
     @include fillScreen.fillScreen;
 
     z-index: 0;
-
-    margin: 0;
-    padding: 0;
 
     font-size: 16px;
   }
@@ -34,7 +34,9 @@
     overflow: auto;
     position: relative;
 
-    padding-top: var(--x-navbar-height);
+    &.has-navigation-bar {
+      padding-top: var(--x-navbar-height);
+    }
   }
 </style>
 
@@ -55,7 +57,8 @@
       },
       style() {
         return getObjectAsCSSVariables(this.fullTheme);
-      }
+      },
+      hasNavigationBar: vm => vm.$kiste.hasNavigationBar
     }
   }
 </script>
