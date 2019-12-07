@@ -1,2 +1,3 @@
 node_modules/
+.storybook/output/
 yarn-error.log
