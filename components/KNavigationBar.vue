@@ -10,9 +10,10 @@
       <div class="k-navigation-bar__container-2">
         <div class="k-navigation-bar__links">
           <template v-for="item in items">
-            <component :is="$nuxt ? 'nuxt-link' : 'router-link'"
+            <component
+              :is="isNuxt() ? 'nuxt-link' : 'router-link'"
               v-if="item.to"
-              :key="item.to"
+              :key="item.label"
               :to="item.to"
               @click.native.passive="open = false"
             >
@@ -20,7 +21,7 @@
             </component>
             <a
               v-else
-              :key="item.to"
+              :key="item.label"
               rel="noopener"
               :href="item.href"
               @click.native.passive="open = false"
@@ -34,11 +35,19 @@
   </nav>
 </template>
 
-<style scoped lang="scss">
-  @use "../css/utilities/screenSize";
+<style lang="scss">
+  @use "~@kiste/css/utilities/screenSize";
+
+  .k-app {
+    --x-navbar-height: 100px;
+
+    @include screenSize.mobile {
+      --x-navbar-height: 80px;
+    }
+  }
 
   .k-navigation-bar {
-    height: var(--navbar-height);
+    height: var(--x-navbar-height);
 
     position: fixed;
     top: 0;
@@ -53,10 +62,10 @@
     font-size: 1.1rem;
     text-transform: uppercase;
 
+    transition: 120ms linear background-color;
     background-color: transparent;
-
     &.show-background {
-      background-color: white;
+      background-color: var(--colors-background);
     }
 
     &.scrolled {
@@ -115,14 +124,16 @@
       position: relative;
 
       text-decoration: none;
-      color: black;
+      color: var(--colors-background-c);
 
       &::after {
         content: "";
         position: absolute;
         top: 30px;
         left: 0;
-        background-color: black;
+
+        background-color: var(--colors-background-c);
+
         height: 2px;
         width: 100%;
 
@@ -149,7 +160,7 @@
       & > span {
         display: block;
 
-        background-color: black;
+        background-color: var(--colors-background-c);
 
         width: 30px;
         height: 2px;
@@ -168,12 +179,12 @@
     }
 
     .k-navigation-bar__container-1 {
-      margin-left: 30px;
+      padding-left: 50px !important;
     }
 
     .k-navigation-bar__container-2 {
       pointer-events: none;
-      background-color: white;
+      background-color: var(--colors-background);
 
       position: fixed;
       top: 0;
@@ -241,10 +252,12 @@
 </style>
 
 <script>
+  import { isNuxt } from "@kiste/js/utils/isNuxt";
+
   export default {
     name: "NavigationBar",
     props: {
-      showBackground: {
+      backgroundAfterScroll: {
         type: Boolean,
         default: false
       },
@@ -262,7 +275,8 @@
       scrollPosition: 0
     }),
     computed: {
-      scrolled: vm => vm.scrollPosition > 50
+      scrolled: vm => vm.scrollPosition > 60,
+      showBackground: vm => vm.backgroundAfterScroll ? vm.scrollPosition > 0 : true
     },
     mounted() {
       const scrollListener = () => {
@@ -276,6 +290,9 @@
       });
 
       scrollListener();
+    },
+    methods: {
+      isNuxt
     }
   };
 </script>

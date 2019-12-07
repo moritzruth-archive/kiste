@@ -1,9 +1,6 @@
 .content {
+  max-width: calc(100vw - var(--content-padding) * 2);
   width: var(--content-width);
+  padding: 0 var(--content-padding);
   margin: 0 auto;
-
-  @media (max-width: calc(var(--width-content) + var(--content-padding) * 2)) {
-    width: 100%;
-    padding: 0 var(--content-padding);
-  }
 }
