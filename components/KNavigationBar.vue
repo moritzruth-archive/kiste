@@ -11,7 +11,7 @@
         <div class="k-navigation-bar__links">
           <template v-for="item in items">
             <component
-              :is="isNuxt() ? 'nuxt-link' : 'router-link'"
+              :is="isNuxt ? 'nuxt-link' : 'router-link'"
               v-if="item.to"
               :key="item.label"
               :to="item.to"
@@ -284,7 +284,8 @@
           showBackground
         })
       },
-      items: vm => vm.$kiste.navigationItems
+      items: vm => vm.$kiste.navigationItems,
+      isNuxt
     },
     mounted() {
       const scrollListener = () => {
@@ -301,9 +302,6 @@
       });
 
       scrollListener();
-    },
-    methods: {
-      isNuxt
     }
   };
 </script>

@@ -4,7 +4,7 @@
       <component
         v-if="item.to"
         :key="item.label"
-        :is="isNuxt() ? 'nuxt-link' : 'router-link'"
+        :is="isNuxt ? 'nuxt-link' : 'router-link'"
         class="k-footer__link"
         :to="item.to"
       >
@@ -66,9 +66,7 @@
   export default {
     name: "KFooter",
     computed: {
-      items: vm => vm.$kiste.footerItems
-    },
-    methods: {
+      items: vm => vm.$kiste.footerItems,
       isNuxt
     }
   };

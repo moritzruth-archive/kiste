@@ -1,3 +1,3 @@
-export function isNuxt() {
-  return window.$nuxt !== undefined;
+export function isNuxt(vm) {
+  return vm.$nuxt !== undefined;
 }
