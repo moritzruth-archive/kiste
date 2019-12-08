@@ -1,6 +1,6 @@
 {
   "name": "kiste",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A collection of UI components and styles",
   "main": "plugin.js",
   "repository": "https://github.com/moritzruth/kiste.git",
@@ -12,9 +12,9 @@
     "deploy-storybook": "storybook-to-ghpages -o .storybook/output"
   },
   "peerDependencies": {
-    "svg-to-vue-component": "^0.3.8",
+    "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
-    "sass": "^1.23.7"
+    "svg-to-vue-component": "^0.3.8"
   },
   "dependencies": {
     "chroma-js": "^2.1.0",
