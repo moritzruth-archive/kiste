@@ -1,5 +1,4 @@
 dev/
 .storybook/
-stories/
-
+*.stories.js
 .gitignore
