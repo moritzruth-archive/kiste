@@ -68,4 +68,4 @@ const background = {
 ```
 
 ## Documentation
-You can see all components and classes in [this storybook](https://app.moritz-ruth/kiste).
+You can see all components and classes in [this storybook](https://app.moritz-ruth.de/kiste).
