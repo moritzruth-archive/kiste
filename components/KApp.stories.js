@@ -28,6 +28,11 @@ stories.add("light theme", () => ({
 
 stories.add("dark theme", () => ({
   components: { KApp, KNavigationBar, KExternalLink },
-  theme: { colors: { background: 'black/white' }},
-  template
+  mounted() {
+    this.$kiste.theme = { colors: { background: 'black/white' }};
+  },
+  beforeDestroy() {
+    this.$kiste.resetTheme();
+  },
+  template,
 }));

@@ -2,19 +2,26 @@
   "name": "kiste",
   "version": "0.0.0",
   "description": "A collection of UI components and styles",
-  "main": "index.js",
+  "main": "plugin.js",
   "repository": "https://github.com/moritzruth/kiste.git",
   "author": "Moritz Ruth <dev@moritz-ruth.de>",
   "license": "MIT",
   "private": false,
-    "scripts": {
+  "scripts": {
     "storybook": "start-storybook -p 6006",
     "deploy-storybook": "storybook-to-ghpages -o .storybook/output"
   },
+  "peerDependencies": {
+    "svg-to-vue-component": "^0.3.8",
+    "sass-loader": "^8.0.0",
+    "sass": "^1.23.7"
+  },
   "dependencies": {
+    "chroma-js": "^2.1.0",
     "lodash.defaultsdeep": "^4.6.1",
     "lodash.kebabcase": "^4.1.1",
-    "lodash.mapvalues": "^4.6.0"
+    "lodash.mapvalues": "^4.6.0",
+    "vue-ripple-directive": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",

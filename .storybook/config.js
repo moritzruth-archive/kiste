@@ -1,6 +1,6 @@
 import { configure } from '@storybook/vue';
 import Vue from "vue";
-import Kiste from "../index";
+import Kiste from "../plugin";
 
 // automatically import all files ending in *.stories.js
 configure(require.context('../components', true, /\.stories\.js$/), module);

@@ -1,7 +1,7 @@
 import _defaultsDeep from "lodash.defaultsdeep";
 import _mapValues from "lodash.mapvalues";
 import _kebabCase from "lodash.kebabcase";
-import { mapValuesDeep } from "@kiste/js/utils/mapValuesDeep";
+import { mapValuesDeep } from "kiste/js/utils/mapValuesDeep";
 
 const DEFAULT_THEME = {
   colors: {

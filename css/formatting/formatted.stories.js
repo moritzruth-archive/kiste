@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import KApp from "@kiste/components/KApp";
+import KApp from "kiste/components/KApp";
 
 const stories = storiesOf("Classes|formatted", module);
 
@@ -9,25 +9,25 @@ stories.add("default", () => ({
     <KApp>
       <div class="content formatted">
         <h3 style="color: red">
-          All classes are automatically applied
+          All styles are automatically applied
         </h3>
         <h1>
-          Heading 1 (<code>heading--1</code>)
+          Heading 1
         </h1>
         <h2>
-          Heading 2 (<code>heading--2</code>)
+          Heading 2
         </h2>
         <h3>
-          Heading 3 (<code>heading--3</code>)
+          Heading 3
         </h3>
         <h4>
-          Heading 4 (<code>heading--4</code>)
+          Heading 4
         </h4>
         <h5>
-          Heading 5 (<code>heading--5</code>)
+          Heading 5
         </h5>
         <h6>
-          Heading 6 (<code>heading--6</code>)
+          Heading 6
         </h6>
         <p>Paragraph</p>
         <a href="https://example.com">Link</a>

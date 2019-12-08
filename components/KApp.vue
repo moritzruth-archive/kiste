@@ -5,10 +5,10 @@
 </template>
 
 <style lang="scss">
-  @use "~@kiste/css/mixins/screenSize";
-  @use "~@kiste/css/mixins/fillScreen";
-  @use "~@kiste/css/formatting";
-  @use "~@kiste/css/elements";
+  @use "~kiste/css/mixins/screenSize";
+  @use "~kiste/css/mixins/fillScreen";
+  @use "~kiste/css/formatting";
+  @use "~kiste/css/elements";
 
   *, *::before, *::after {
     box-sizing: border-box;
@@ -41,23 +41,14 @@
 </style>
 
 <script>
-  import { getFullTheme, getObjectAsCSSVariables } from "@kiste/js/utils/theming";
-  import { toModifierClasses } from "@kiste/js/utils/toModifierClasses";
+  import { getObjectAsCSSVariables } from "kiste/js/utils/theming";
+  import { toModifierClasses } from "kiste/js/utils/toModifierClasses";
 
   export default {
     name: "KApp",
-    props: {
-      theme: {
-        type: Object,
-        default: () => ({})
-      }
-    },
     computed: {
-      fullTheme() {
-        return getFullTheme(this.theme);
-      },
       style() {
-        return getObjectAsCSSVariables(this.fullTheme);
+        return getObjectAsCSSVariables(this.$kiste.fullTheme);
       },
       classes() {
         const { hasNavigationBar } = this.$kiste;

@@ -5,7 +5,7 @@ const path = require("path");
 module.exports = {
   resolve: {
     alias: {
-      "@kiste": path.resolve(__dirname)
+      "kiste": path.resolve(__dirname)
     }
   }
 };

@@ -36,7 +36,7 @@
 </template>
 
 <style lang="scss">
-  @use "~@kiste/css/mixins/screenSize";
+  @use "~kiste/css/mixins/screenSize";
 
   .k-app {
     --x-navbar-height: 100px;
@@ -253,8 +253,8 @@
 </style>
 
 <script>
-  import { isNuxt } from "@kiste/js/utils/isNuxt";
-  import { toModifierClasses } from "@kiste/js/utils/toModifierClasses";
+  import { isNuxt } from "kiste/js/utils/isNuxt";
+  import { toModifierClasses } from "kiste/js/utils/toModifierClasses";
 
   export default {
     name: "NavigationBar",

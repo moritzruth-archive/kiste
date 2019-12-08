@@ -31,7 +31,7 @@
 </style>
 
 <script>
-  import ExternalIcon from "@kiste/icons/external.svg";
+  import ExternalIcon from "kiste/icons/external.svg";
 
   export default {
     name: "KExternalLink",
