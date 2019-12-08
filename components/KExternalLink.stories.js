@@ -9,7 +9,9 @@ stories.addDecorator(withKnobs());
 
 const template = `
   <KApp>
-    <KExternalLink :href="href" :show-protocol="showProtocol" :show-query="showQuery">{{ label }}</KExternalLink>
+    <div class="fill-screen center-content">
+      <KExternalLink :href="href" :show-protocol="showProtocol" :show-query="showQuery">{{ label }}</KExternalLink>
+    </div>
   </KApp>
 `;
 

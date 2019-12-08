@@ -1,8 +1,6 @@
 <template>
   <footer class="content k-footer">
-    <template
-      v-for="item in items"
-    >
+    <template v-for="item in items">
       <component
         v-if="item.to"
         :key="item.label"
@@ -46,29 +44,29 @@
   }
 
   .k-footer__link {
-    color: #606060;
     text-decoration: none;
     flex-shrink: 0;
-
     margin: 10px;
 
-    transition: 100ms linear color;
+    opacity: 0.6;
+    color: var(--colors-background-c);
+
+    transition: 120ms linear;
+    transition-property: opacity, color;
     &:hover {
       color: var(--colors-link);
+      opacity: 1;
     }
   }
 </style>
 
 <script>
-  import { isNuxt } from "kiste/js/utils/isNuxt";
+  import { isNuxt } from "kiste/js/isNuxt";
 
   export default {
     name: "KFooter",
-    props: {
-      items: {
-        type: Array,
-        required: true
-      }
+    computed: {
+      items: vm => vm.$kiste.footerItems
     },
     methods: {
       isNuxt

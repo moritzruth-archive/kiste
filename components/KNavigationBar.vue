@@ -253,8 +253,8 @@
 </style>
 
 <script>
-  import { isNuxt } from "kiste/js/utils/isNuxt";
-  import { toModifierClasses } from "kiste/js/utils/toModifierClasses";
+  import { isNuxt } from "kiste/js/isNuxt";
+  import { toModifierClasses } from "kiste/js/toModifierClasses";
 
   export default {
     name: "NavigationBar",
@@ -266,10 +266,6 @@
       title: {
         type: String,
         default: ""
-      },
-      items: {
-        type: Array,
-        required: true
       }
     },
     data: () => ({
@@ -287,7 +283,8 @@
           scrolled,
           showBackground
         })
-      }
+      },
+      items: vm => vm.$kiste.navigationItems
     },
     mounted() {
       const scrollListener = () => {

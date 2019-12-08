@@ -9,21 +9,16 @@ const stories = storiesOf("Components|KApp", module);
 
 const template = `
   <KApp>
-    <KNavigationBar title="Home" show-background :items="[{ label: 'Home', href: '#' }]"/>
+    <KNavigationBar title="Home" show-background/>
     <div class="content formatted">
       <h1>Home</h1>
-      <div style="height: 150vh"></div>
+      <div style="height: 80vh"></div>
       <p>Paragraph 1</p>
       <p>
         <KExternalLink href="#">External Link</KExternalLink>
       </p>
     </div>
-    <KFooter
-      :items="[
-        { href: 'https://example.com', label: 'Legal Notice' },
-        { href: 'https://example.com', label: 'Privacy Policy' }
-      ]"
-    />
+    <KFooter/>
   </KApp>
 `;
 
@@ -35,7 +30,7 @@ stories.add("default theme", () => ({
 stories.add("dark theme", () => ({
   components: { KApp, KNavigationBar, KExternalLink, KFooter },
   mounted() {
-    this.$kiste.theme = { colors: { background: 'black/white' }};
+    this.$kiste.theme = { colors: { background: 'black/white/#a0a0a0' }};
   },
   beforeDestroy() {
     this.$kiste.resetTheme();

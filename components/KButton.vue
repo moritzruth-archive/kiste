@@ -42,7 +42,7 @@
 
 <script>
   import chroma from "chroma-js";
-  import { DEFAULT_KEY } from "kiste/js/utils/theming";
+  import { DEFAULT_KEY } from "kiste/js/theming";
 
   export default {
     name: "GButton",

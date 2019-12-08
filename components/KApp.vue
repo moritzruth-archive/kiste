@@ -34,6 +34,10 @@
     overflow: auto;
     position: relative;
 
+    ::selection {
+      background-color: var(--colors-background-a);
+    }
+
     &.x-has-navigation-bar {
       padding-top: var(--x-navbar-height);
     }
@@ -41,8 +45,8 @@
 </style>
 
 <script>
-  import { getObjectAsCSSVariables } from "kiste/js/utils/theming";
-  import { toModifierClasses } from "kiste/js/utils/toModifierClasses";
+  import { getObjectAsCSSVariables } from "kiste/js/theming";
+  import { toModifierClasses } from "kiste/js/toModifierClasses";
 
   export default {
     name: "KApp",

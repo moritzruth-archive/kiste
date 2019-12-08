@@ -1,4 +1,4 @@
-import { getFullTheme } from "kiste/js/utils/theming";
+import { getFullTheme } from "kiste/js/theming";
 import RippleDirective from "vue-ripple-directive";
 
 const Kiste = {
@@ -8,7 +8,9 @@ const Kiste = {
     Vue.prototype.$kiste = new Vue({
       data: {
         hasNavigationBar: false,
-        theme: options.theme || {}
+        theme: options.theme || {},
+        navigationItems: options.navigationItems || [],
+        footerItems: options.footerItems || []
       },
       computed: {
         fullTheme() {
