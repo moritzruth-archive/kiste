@@ -1,6 +1,6 @@
 {
   "name": "kiste",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A collection of UI components and styles",
   "main": "plugin.js",
   "repository": "https://github.com/moritzruth/kiste.git",
