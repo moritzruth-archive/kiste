@@ -1,5 +1,5 @@
 <template>
-  <div class="k-app" :class="classes" :style="style">
+  <div class="k-app" :style="style">
     <slot/>
   </div>
 </template>
@@ -37,10 +37,6 @@
     ::selection {
       background-color: var(--colors-background-a);
     }
-
-    &.x-has-navigation-bar {
-      padding-top: var(--x-navbar-height);
-    }
   }
 </style>
 
@@ -53,15 +49,7 @@
     computed: {
       style() {
         return getObjectAsCSSVariables(this.$kiste.fullTheme);
-      },
-      classes() {
-        const { hasNavigationBar } = this.$kiste;
-
-        return toModifierClasses({
-          hasNavigationBar
-        });
-      },
-      hasNavigationBar: vm => vm.$kiste.hasNavigationBar
+      }
     }
   }
 </script>

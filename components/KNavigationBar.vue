@@ -1,38 +1,41 @@
 <template>
-  <nav class="k-navigation-bar" :class="classes">
-    <div class="k-navigation-bar__toggle" @click="open = !open">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="k-navigation-bar__container-1 content">
-      <span class="k-navigation-bar__title">{{ title }}</span>
-      <div class="k-navigation-bar__container-2">
-        <div class="k-navigation-bar__links">
-          <template v-for="item in items">
-            <component
-              :is="isNuxt ? 'nuxt-link' : 'router-link'"
-              v-if="item.to"
-              :key="item.label"
-              :to="item.to"
-              @click.native.passive="open = false"
-            >
-              {{ item.label }}
-            </component>
-            <a
-              v-else
-              :key="item.label"
-              rel="noopener"
-              :href="item.href"
-              @click.native.passive="open = false"
-            >
-              {{ item.label }}
-            </a>
-          </template>
+  <div class="k-navigation-bar">
+    <div class="k-navigation-bar__placeholder"></div>
+    <nav class="k-navigation-bar__container-0" :class="classes">
+      <div class="k-navigation-bar__toggle" @click="open = !open">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="k-navigation-bar__container-1 content">
+        <span class="k-navigation-bar__title">{{ title }}</span>
+        <div class="k-navigation-bar__container-2">
+          <div class="k-navigation-bar__links">
+            <template v-for="item in items">
+              <component
+                :is="isNuxt ? 'nuxt-link' : 'router-link'"
+                v-if="item.to"
+                :key="item.label"
+                :to="item.to"
+                @click.native.passive="open = false"
+              >
+                {{ item.label }}
+              </component>
+              <a
+                v-else
+                :key="item.label"
+                rel="noopener"
+                :href="item.href"
+                @click.native.passive="open = false"
+              >
+                {{ item.label }}
+              </a>
+            </template>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <style lang="scss">
@@ -47,6 +50,15 @@
   }
 
   .k-navigation-bar {
+    height: var(--x-navbar-height);
+  }
+
+  .k-navigation-bar__placeholder {
+    height: var(--x-navbar-height);
+    width: 100%;
+  }
+
+  .k-navigation-bar__container-0 {
     height: var(--x-navbar-height);
 
     position: fixed;
@@ -294,14 +306,18 @@
 
       window.addEventListener("scroll", scrollListener, { passive: true });
 
-      this.$kiste.hasNavigationBar = true;
+      this.$kiste.navigationBar = this;
 
       this.$on("hook:beforeDestroy", () => {
         window.removeEventListener("scroll", scrollListener);
-        this.$kiste.hasNavigationBar = false;
       });
 
       scrollListener();
+    },
+    destroyed () {
+      if (this.$kiste.navigationBar === this) {
+        this.$kiste.navigationBar = null;
+      }
     }
   };
 </script>

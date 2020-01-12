@@ -7,10 +7,10 @@ const Kiste = {
 
     Vue.prototype.$kiste = new Vue({
       data: {
-        hasNavigationBar: false,
         theme: options.theme || {},
         navigationItems: options.navigationItems || [],
-        footerItems: options.footerItems || []
+        footerItems: options.footerItems || [],
+        navigationBar: null
       },
       computed: {
         fullTheme() {
