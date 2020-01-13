@@ -1,7 +1,7 @@
 <template>
-  <div class="k-navigation-bar">
+  <div class="k-navigation-bar" :class="classes">
     <div class="k-navigation-bar__placeholder"></div>
-    <nav class="k-navigation-bar__container-0" :class="classes">
+    <nav class="k-navigation-bar__container-0">
       <div class="k-navigation-bar__toggle" @click="open = !open">
         <span></span>
         <span></span>
