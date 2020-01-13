@@ -77,11 +77,11 @@
     transition: 120ms linear background-color;
     background-color: transparent;
 
-    &.x-show-background {
+    .k-navigation-bar.x-show-background & {
       background-color: var(--colors-background);
     }
 
-    &.x-scrolled {
+    .k-navigation-bar.x-scrolled & {
       .k-navigation-bar__title {
         opacity: 1;
         transform: translateY(0);
