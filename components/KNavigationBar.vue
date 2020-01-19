@@ -26,7 +26,7 @@
                 :key="item.label"
                 rel="noopener"
                 :href="item.href"
-                @click.native.passive="open = false"
+                @click.passive="open = false"
               >
                 {{ item.label }}
               </a>
@@ -269,7 +269,7 @@
   import { toModifierClasses } from "kiste/js/toModifierClasses";
 
   export default {
-    name: "NavigationBar",
+    name: "KNavigationBar",
     props: {
       backgroundAfterScroll: {
         type: Boolean,
