@@ -9,7 +9,7 @@ const stories = storiesOf("Components|KApp", module);
 
 const template = `
   <KApp>
-    <KNavigationBar title="Home" show-background/>
+    <KNavigationBar title="Home"/>
     <div class="content formatted">
       <h1>Home</h1>
       <div style="height: 80vh"></div>
