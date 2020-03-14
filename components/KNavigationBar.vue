@@ -51,6 +51,8 @@
 
   .k-navigation-bar {
     height: var(--x-navbar-height);
+    position: relative;
+    z-index: 100000;
   }
 
   .k-navigation-bar__placeholder {
