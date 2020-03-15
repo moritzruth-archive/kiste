@@ -52,7 +52,7 @@
     },
     computed: {
       label() {
-        const url = new URL(this.href);
+        const url = new (process.server ? require("url").URL : window.URL)(this.href);
         let label = "";
 
         if (this.showProtocol) {
